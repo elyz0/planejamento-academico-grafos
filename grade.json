@@ -42,14 +42,14 @@
 
     {"codigo": "P6_01", "nome": "UCE", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
     {"codigo": "P6_02", "nome": "Sistemas Distribuídos", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P5_02"]},
-    {"codigo": "P6_03", "nome": "Produção Científica", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 30, "prerequisitos": ["P1_07"]},
+    {"codigo": "P6_03", "nome": "Produção Científica", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 30, "prerequisitos": []},
     {"codigo": "P6_04", "nome": "Computação Gráfica", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
     {"codigo": "P6_05", "nome": "Complexidade de Algoritmos", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
     {"codigo": "P6_06", "nome": "Optativa III", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
     {"codigo": "P6_07", "nome": "Optativa IV", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
 
     {"codigo": "P7_01", "nome": "UCE", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
-    {"codigo": "P7_02", "nome": "Programação Paralela", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": ["P6_02"]},
+    {"codigo": "P7_02", "nome": "Programação Paralela", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": ["P4_02"]},
     {"codigo": "P7_03", "nome": "Teoria Geral de Adm. e Empreendedorismo", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
     {"codigo": "P7_04", "nome": "Projeto de Trabalho de Conclusão de Curso", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P4_02", "P4_04", "P5_03", "P6_02", "P6_03", "P6_04"]},
     {"codigo": "P7_05", "nome": "Processamento de Imagem e Visão Computacional", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
