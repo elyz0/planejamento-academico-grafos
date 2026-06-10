@@ -1,0 +1,63 @@
+{
+  "disciplinas": [
+    {"codigo": "P1_01", "nome": "Tecnologia, Ética e Sociedade", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P1_02", "nome": "Filosofia da Ciência", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": []},
+    {"codigo": "P1_03", "nome": "Física para Computação", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P1_04", "nome": "Matemática Fundamental", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 90, "prerequisitos": []},
+    {"codigo": "P1_05", "nome": "Algoritmos e Programação", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 90, "prerequisitos": []},
+    {"codigo": "P1_06", "nome": "Lógica Matemática Aplicada à Computação", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P1_07", "nome": "Produção Textual", "periodo": 1, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": []},
+
+    {"codigo": "P2_01", "nome": "UCE", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 30, "prerequisitos": []},
+    {"codigo": "P2_02", "nome": "Circuitos Digitais", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 90, "prerequisitos": []},
+    {"codigo": "P2_03", "nome": "Geometria Analítica", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P2_04", "nome": "Cálculo", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 90, "prerequisitos": ["P1_04"]},
+    {"codigo": "P2_05", "nome": "Técnicas de Programação", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P1_05"]},
+    {"codigo": "P2_06", "nome": "Inglês Técnico", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P2_07", "nome": "Metodologia para o Trabalho Científico", "periodo": 2, "semestre_oferta": 2, "carga_horaria": 30, "prerequisitos": []},
+
+    {"codigo": "P3_01", "nome": "UCE", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P3_02", "nome": "Arquitetura de Computadores", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P2_02"]},
+    {"codigo": "P3_03", "nome": "Álgebra Linear", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P2_03"]},
+    {"codigo": "P3_04", "nome": "Engenharia de Software", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P3_05", "nome": "Estrutura de Dados", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 90, "prerequisitos": ["P2_05"]},
+    {"codigo": "P3_06", "nome": "Paradigmas de Programação", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": ["P1_05"]},
+    {"codigo": "P3_07", "nome": "Probabilidade e Estatística", "periodo": 3, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+
+    {"codigo": "P4_01", "nome": "UCE", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P4_02", "nome": "Sistemas Operacionais", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_02"]},
+    {"codigo": "P4_03", "nome": "Transmissão de Dados", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P1_03"]},
+    {"codigo": "P4_04", "nome": "Análise de Projeto de Sistemas", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_04"]},
+    {"codigo": "P4_05", "nome": "Programação Orientada à Objetos", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P2_05"]},
+    {"codigo": "P4_06", "nome": "Cálculo Numérico Computacional", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P2_05"]},
+    {"codigo": "P4_07", "nome": "Banco de Dados", "periodo": 4, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+
+    {"codigo": "P5_01", "nome": "UCE", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P5_02", "nome": "Redes de Computadores", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P4_03"]},
+    {"codigo": "P5_03", "nome": "Inteligência Artificial", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 90, "prerequisitos": ["P2_05"]},
+    {"codigo": "P5_04", "nome": "Teoria dos Grafos", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
+    {"codigo": "P5_05", "nome": "Teoria da Computação", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
+    {"codigo": "P5_06", "nome": "Optativa I", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P5_07", "nome": "Optativa II", "periodo": 5, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+
+    {"codigo": "P6_01", "nome": "UCE", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P6_02", "nome": "Sistemas Distribuídos", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P5_02"]},
+    {"codigo": "P6_03", "nome": "Produção Científica", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 30, "prerequisitos": ["P1_07"]},
+    {"codigo": "P6_04", "nome": "Computação Gráfica", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
+    {"codigo": "P6_05", "nome": "Complexidade de Algoritmos", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
+    {"codigo": "P6_06", "nome": "Optativa III", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P6_07", "nome": "Optativa IV", "periodo": 6, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+
+    {"codigo": "P7_01", "nome": "UCE", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P7_02", "nome": "Programação Paralela", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 30, "prerequisitos": ["P6_02"]},
+    {"codigo": "P7_03", "nome": "Teoria Geral de Adm. e Empreendedorismo", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P7_04", "nome": "Projeto de Trabalho de Conclusão de Curso", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P4_02", "P4_04", "P5_03", "P6_02", "P6_03", "P6_04"]},
+    {"codigo": "P7_05", "nome": "Processamento de Imagem e Visão Computacional", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P3_05"]},
+    {"codigo": "P7_06", "nome": "Compiladores", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": ["P5_05"]},
+    {"codigo": "P7_07", "nome": "Optativa V", "periodo": 7, "semestre_oferta": 1, "carga_horaria": 60, "prerequisitos": []},
+
+    {"codigo": "P8_01", "nome": "Trabalho de Conclusão de Curso", "periodo": 8, "semestre_oferta": 2, "carga_horaria": 120, "prerequisitos": ["P7_04"]},
+    {"codigo": "P8_02", "nome": "Optativa VI", "periodo": 8, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []},
+    {"codigo": "P8_03", "nome": "UCE", "periodo": 8, "semestre_oferta": 2, "carga_horaria": 60, "prerequisitos": []}
+  ]
+}
