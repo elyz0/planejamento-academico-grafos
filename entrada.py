@@ -104,22 +104,19 @@ def _extrair_disciplinas_historico(texto: str) -> list[dict]:
     linhas = texto.split('\n')
     resultado = []
 
-    padrao_entrada  = re.compile(r"^\d{4}\.\d\s+[*&#@§%]?\s*([A-Z]{2,4}\d{4})\s+\d")
-    padrao_situacao = re.compile(
-        r"\b(APR|APRN|DISP|TRANS|INCORP|CUMP|REP|REPMF|REPF|REPN|REPNF|MATR|TRANC|CANC|REC)\b$"
+    padrao = re.compile(
+        r"^\d{4}\.\d\s+[*&#@§%e]?\s*([A-Z]{2,4}\d{4})\b.*?\b(\d+)\s+(\d+)\s+\d+.*?\b(APR|APRN|DISP|TRANS|INCORP|CUMP|REP|REPMF|REPF|REPN|REPNF|MATR|TRANC|CANC|REC)$"
     )
 
     for i, linha in enumerate(linhas):
-        m_entrada = padrao_entrada.match(linha.strip())
-        if not m_entrada:
+        m = padrao.match(linha.strip())
+        if not m:
             continue
 
-        cod_sigaa = m_entrada.group(1)
-
-        m_sit = padrao_situacao.search(linha)
-        if not m_sit:
-            continue
-        situacao = m_sit.group(1)
+        cod_sigaa = m.group(1)
+        ch_aula = m.group(2)
+        ch_total = m.group(3)
+        situacao = m.group(4)
 
         # Nome está na linha anterior ao código da turma
         nome_bruto = ""
@@ -135,7 +132,8 @@ def _extrair_disciplinas_historico(texto: str) -> list[dict]:
             "codigo_sigaa": cod_sigaa,
             "nome_bruto":   nome_bruto,
             "situacao":     situacao,
-            "aprovado":     situacao in SITUACOES_APROVADO
+            "aprovado":     situacao in SITUACOES_APROVADO,
+            "carga_horaria": int(ch_total)
         })
 
     return resultado
@@ -173,15 +171,19 @@ def _construir_mapa_sigaa_grade(
     Mapeia código SIGAA (ex: 'NCC0108') para código interno da grade
     (ex: 'P1_07'), comparando nomes normalizados.
 
-    Estratégia:
-        1. Correspondência exata por nome normalizado
-        2. Maior sobreposição de palavras (mínimo 2 em comum)
-        3. None se não houver correspondência (optativa externa, etc.)
+    Trata UCEs dinamicamente associando-as sequencialmente a slots de UCE
+    da grade de mesma carga horária.
     """
+    # Cria o índice de disciplinas que NÃO são UCEs
     indice_grade = {
         _normalizar_nome(d['nome']): d['codigo']
         for d in disciplinas_grade
+        if d['nome'].upper() != 'UCE'
     }
+
+    # Coleta todos os slots de UCE da grade
+    uces_grade = [d for d in disciplinas_grade if d['nome'].upper() == 'UCE']
+    uces_mapeadas = set()
 
     mapa = {}
     for disc in disciplinas_historico:
@@ -189,14 +191,41 @@ def _construir_mapa_sigaa_grade(
         if cod_sigaa in mapa:
             continue
 
-        nome_norm = _normalizar_nome(disc['nome_bruto'])
+        nome_bruto = disc['nome_bruto']
+        nome_norm = _normalizar_nome(nome_bruto)
 
-        # 1. Exata
+        # Identifica se é UCE
+        is_uce = (cod_sigaa.startswith('UCE') or 
+                  'uce' in nome_norm or 
+                  'unidade curricular de extensao' in nome_norm)
+
+        if is_uce:
+            # Associa a um slot de UCE da grade com carga horária compatível
+            ch_historico = disc.get('carga_horaria')
+            codigo_grade_uce = None
+            for uce in uces_grade:
+                if uce['codigo'] not in uces_mapeadas and uce['carga_horaria'] == ch_historico:
+                    codigo_grade_uce = uce['codigo']
+                    uces_mapeadas.add(codigo_grade_uce)
+                    break
+            
+            # Fallback para qualquer slot UCE não mapeado se a carga horária não bater exatamente
+            if not codigo_grade_uce:
+                for uce in uces_grade:
+                    if uce['codigo'] not in uces_mapeadas:
+                        codigo_grade_uce = uce['codigo']
+                        uces_mapeadas.add(codigo_grade_uce)
+                        break
+
+            mapa[cod_sigaa] = codigo_grade_uce
+            continue
+
+        # 1. Correspondência exata por nome normalizado
         if nome_norm in indice_grade:
             mapa[cod_sigaa] = indice_grade[nome_norm]
             continue
 
-        # 2. Maior sobreposição de palavras
+        # 2. Maior sobreposição de palavras (mínimo 2 em comum)
         melhor, maior_overlap = None, 0
         palavras_hist = set(nome_norm.split())
         for k_grade, v_grade in indice_grade.items():
